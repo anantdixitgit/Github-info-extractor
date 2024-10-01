@@ -2,12 +2,18 @@
     margin:0;
     padding: 0;
     font-family: Arial, sans-serif;    
+    background-color:rgb(59, 58, 58);
+    color:#ffffff;
 }
 
 #heading{
     text-align:center;
     margin:20px;
+  
 }
+ input{
+     border: 2px solid white;
+ }
 #form{
     display:flex;
     flex-direction: column;
@@ -22,6 +28,11 @@
      text-align: center;
      margin:10px;
      border-radius: 15px;
+}
+#cards{
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap:wrap;
 }
 
 .card{ 

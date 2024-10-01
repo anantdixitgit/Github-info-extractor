@@ -14,7 +14,7 @@ input.addEventListener('click',function(e){
       
     }
 
-let Name
+
 let email;
 let bio;
 let publicRepos;
@@ -44,7 +44,6 @@ xhr.onreadystatechange=function() {// when ever state change onreadyStatechange 
       console.log(data);
       //userval=data.username;
 
-      Name=data.name;
       
       
       email=data.email;
@@ -60,19 +59,19 @@ xhr.onreadystatechange=function() {// when ever state change onreadyStatechange 
       if(publicRepos===0) publicRepos=='not crete any repository yet'
 
       following=data.following
+
       
       followers=data.followers
       
       publicgist=data.public_gist
 
-      document.querySelector('#username').innerHTML= username;
-      document.querySelector('#name').innerHtml=`Name:${Name}`
+      document.querySelector('#username').innerHTML=`UserName:${username}`;
       document.querySelector('#email').innerHTML=`Email:${email}`
       document.querySelector('#location').innerHTML=`Location:${Location}`
       document.querySelector('#bio').innerHTML=`Bio:${bio}`
       document.querySelector('#publicrepos').innerHTML=`Public repositiries:${publicRepos}`
-      document.querySelector('#follwers').innerHTML=`$Followers:${followers}`
-      document.querySelector('#follwing').innerHTML=`Following:${following}`
+      document.querySelector('#followers').innerHTML=`$Followers:${followers}`
+      document.querySelector('#following').innerHTML=`Following:${following}`
       document.querySelector('#publicgist').innerHTML=`publicgist:${publicgist}`
 
    }

@@ -13,8 +13,8 @@ input.addEventListener('click',function(e){
         console.log(url);
       
     }
-})
 
+let Name
 let email;
 let bio;
 let publicRepos;
@@ -27,40 +27,60 @@ let publicgist;
 
 
 // ==================================
-// const xhr = new XMLHttpRequest();
-const requestURL=url;
-// xhr.open('GET',requestURL)  // request going to send 
-// console.log(xhr);
+//api calls
 
-// xhr.onreadystatechange=function() {// when ever state change onreadyStatechange associated function called;
-//    if(xhr.readyState===4){
-//       // console.log(this.responseText)// now we get data from api;
+  let xhr = new XMLHttpRequest();
+  const requestURL=url;
+  xhr.open('GET',requestURL)  // request going to send 
+  //console.log(xhr);
 
-//       const data=JSON.parse(this.responseText);
-//       //console.log(data);
+xhr.onreadystatechange=function() {// when ever state change onreadyStatechange associated function called;
+
+   if(xhr.readyState == 4){
+       console.log(xhr.responseText)// now we get data from api;
+
+      // to get data
+      const data=JSON.parse(xhr.responseText);
+      console.log(data);
+      //userval=data.username;
+
+      Name=data.name;
       
-//       email=data.email;
-//       if(email ===null) email='not mentioned by the user'
       
-//       Location=data.location;
-//       if(Location ==null) Location='not mentioned'
-
-//       bio=data.bio
-//       if(bio==null) bio ='not mentioned'
-
-//       publicRepos = data.public_repos
-//       if(publicRepos===0) publicRepos=='not crete any repository'
-
-//       following=data.following
+      email=data.email;
+      if(email ===null) email='not mentioned by the user'
       
-//       followers=data.followers
+      Location=data.location;
+      if(Location ===null) Location='not mentioned'
+
+      bio=data.bio
+      if(bio==null) bio ='not mentioned'
+
+      publicRepos = data.public_repos
+      if(publicRepos===0) publicRepos=='not crete any repository yet'
+
+      following=data.following
       
-//       publicgist=data.public_gist
+      followers=data.followers
+      
+      publicgist=data.public_gist
 
-//    }
-// }
+      document.querySelector('#username').innerHTML= username;
+      document.querySelector('#name').innerHtml=`Name:${Name}`
+      document.querySelector('#email').innerHTML=`Email:${email}`
+      document.querySelector('#location').innerHTML=`Location:${Location}`
+      document.querySelector('#bio').innerHTML=`Bio:${bio}`
+      document.querySelector('#publicrepos').innerHTML=`Public repositiries:${publicRepos}`
+      document.querySelector('#follwers').innerHTML=`$Followers:${followers}`
+      document.querySelector('#follwing').innerHTML=`Following:${following}`
+      document.querySelector('#publicgist').innerHTML=`publicgist:${publicgist}`
+
+   }
+}
+xhr.send()  // request send
+
+},false)
 
 
-// xhr.send()  // request send
 // =================================
 
